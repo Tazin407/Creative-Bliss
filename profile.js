@@ -70,11 +70,11 @@ const loadOwnPictures =(id)=>{
                 <small>${info.likes} likes</small><br>
                 <button class="btn btn-primary m-auto" onclick=postLike(${info.id})>🪄Like🪄</button>
 
-                <button class="btn btn-danger" onclick="deleteImage(${info.artist})" >Delete</button></div>
-            </div>
-            <br>
+                </div>
+                <br>
                 
-            `
+                `
+                // <button class="btn btn-danger" onclick="deleteImage(${info.artist}, ${info.id})" >Delete</button></div>
             ownArt.appendChild(div);
 
                 })
@@ -85,8 +85,12 @@ const loadOwnPictures =(id)=>{
 }
 loadProfile();
 
-const deleteImage=(id)=>{
-    if(id === user_param){
+const deleteImage=(artist,id)=>{
+    console.log((artist));
+    console.log( (user_param) );
+    console.log(id);
+    if(artist===user_param){
+        console.log("hello");
         fetch(`https://artistic-vision-api.onrender.com/artworks/${id}`,{
         method: "DELETE",
         headers : {"content-type": "application/json"},

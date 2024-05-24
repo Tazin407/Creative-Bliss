@@ -1,0 +1,16 @@
+
+body{
+    background-image: url('./Resources/bg-2.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  #welcome {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+#dpname{
+  font-size: large;
+}

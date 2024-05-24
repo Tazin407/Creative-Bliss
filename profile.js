@@ -69,9 +69,12 @@ const loadOwnPictures =(id)=>{
             <div class="m-2" >
                 <small>${info.likes} likes</small><br>
                 <button class="btn btn-primary m-auto" onclick=postLike(${info.id})>🪄Like🪄</button>
+
                 <button class="btn btn-danger" onclick="deleteImage(${info.id})" >Delete</button></div>
             </div>
-            <br>`
+            <br>
+                
+            `
             ownArt.appendChild(div);
 
                 })
@@ -83,7 +86,8 @@ const loadOwnPictures =(id)=>{
 loadProfile();
 
 const deleteImage=(id)=>{
-    fetch(`https://artistic-vision-api.onrender.com/artworks/${id}`,{
+    if(id===user_param){
+        fetch(`https://artistic-vision-api.onrender.com/artworks/${id}`,{
         method: "DELETE",
         headers : {"content-type": "application/json"},
     })
@@ -91,4 +95,17 @@ const deleteImage=(id)=>{
     .then((data)=>{
         window.location.reload();
     })
+    }
+    else{
+        alert('Only the owner of the profile can delete thier own picture')
+    }
+    
+}
+
+const handlelogout=()=>{
+    fetch(`https://artistic-vision-api.onrender.com/logout/`)
+    // .then((res)=>res.json())
+    .then(()=>localStorage.clear())
+    .then(()=>window.location.href= "index.html");
+    
 }

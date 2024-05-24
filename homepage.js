@@ -72,12 +72,6 @@ const loadData=()=>{
 
 };
 
-const handlelogout=()=>{
-    fetch(`https://artistic-vision-api.onrender.com/logout/`)
-    // .then((res)=>res.json())
-    .then(()=>localStorage.clear())
-    .then(()=>window.location.href= "index.html");
-    
-}
+
 
 loadData();

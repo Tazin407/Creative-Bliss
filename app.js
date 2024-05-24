@@ -5,7 +5,7 @@ const getValue=(id)=>{
 }
 
 const handleRegister=(event)=>{
-    // event.preventDefault();
+    event.preventDefault();
     const first_name = getValue("first_name");
     const last_name = getValue("last_name");
     const username = getValue("username");
@@ -37,7 +37,7 @@ const handleRegister=(event)=>{
         .then((data) => {
             console.log(data);
             if(data==="Please Check Your Email"){
-
+                alert(data);
                 document.getElementById("submitError").innerText=data;
             }
             else{

@@ -42,7 +42,7 @@ const loadData=()=>{
                 // console.log(name);
             var div=document.createElement("div")
             div.innerHTML=`
-            <div class="bg-secondary-subtle rounded align-content-center p-3 w-100 m-auto min-w-100" id="profileInfo">
+            <div class="bg-secondary-subtle rounded align-content-center p-3 w-lg-50 m-auto min-w-100" id="profileInfo">
             <div class="m-lg-1 d-flex justify-content-start">
             <div class="rounded-circle bg-black text-center text-light" id="dp-name" style="width: 30px; height: 30px;">${name[0]}</div>
             <a style="text-decoration: none;" class="text-dark" href="profile.html?id=${info.artist}" ><p>${name}</p></a> 
@@ -51,7 +51,7 @@ const loadData=()=>{
         <p>${info.description}</p>
         
         <div class=" d-flex justify-content-center">
-            <img class="w-100 h-50 p-1 min-h-100 " src="${info.image}" alt="">
+            <img style="width: 100%; height: 50%;"  src="${info.image}" alt="">
         </div>
         <br>
         <div class="m-2" >

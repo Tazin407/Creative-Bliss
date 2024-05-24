@@ -52,21 +52,24 @@ const loadOwnPictures =(id)=>{
                 getArtistName(info.artist).then((artist_name)=>{
 
                     div.innerHTML=`
-                <div class="bg-secondary-subtle rounded align-content-center p-3 w-100 m-auto min-w-100" id="profileInfo">
+                <div class="bg-secondary-subtle rounded align-content-center p-3 w-75 m-auto" id="profileInfo">
                 <div class="m-lg-1 d-flex justify-content-start">
                 <div class="rounded-circle bg-black  text-center text-light" id="dp-name" style="width: 30px; height: 30px;">${artist_name[0]}</div>
                 <a></a> <p>${artist_name}</p>
+
+               
             </div>
             <small class="fw-bold">${info.title}</small>
             <p>${info.description}</p>
     
             <div class=" d-flex justify-content-center">
-                <img class="w-100 h-50 p-1 min-h-100 " src="${info.image}" alt="">
+                <img style="width: 100%; height: 50%;"  src="${info.image}" alt="">
             </div>
             <br>
             <div class="m-2" >
                 <small>${info.likes} likes</small><br>
-                <button class="btn btn-primary m-auto" onclick=postLike(${info.id})>🪄Like🪄</button></div>
+                <button class="btn btn-primary m-auto" onclick=postLike(${info.id})>🪄Like🪄</button>
+                <button class="btn btn-danger" onclick="deleteImage(${info.id})" >Delete</button></div>
             </div>
             <br>`
             ownArt.appendChild(div);
@@ -77,5 +80,15 @@ const loadOwnPictures =(id)=>{
         }
     })
 }
-
 loadProfile();
+
+const deleteImage=(id)=>{
+    fetch(`https://artistic-vision-api.onrender.com/artworks/${id}`,{
+        method: "DELETE",
+        headers : {"content-type": "application/json"},
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+        window.location.reload();
+    })
+}

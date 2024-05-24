@@ -77,6 +77,9 @@ const handleLogin = (event) =>{
             window.location.href = "homepage.html" ;
             
         }
+        else if(data.token===undefined){
+            document.getElementById("error").innerText= data
+        }
         else{
             document.getElementById("error").innerText= data
         }

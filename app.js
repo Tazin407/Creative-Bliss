@@ -37,7 +37,8 @@ const handleRegister=(event)=>{
         .then((data) => {
             console.log(data);
             if(data==="Please Check Your Email"){
-                alert(data);
+
+                document.getElementById("submitError").innerHTML=``;
                 document.getElementById("submitError").innerText=data;
             }
             else{
